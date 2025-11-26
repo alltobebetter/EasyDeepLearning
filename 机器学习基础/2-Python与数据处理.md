@@ -1,4 +1,4 @@
-# 第二章：Python与数据处理基础 🐍
+# 第二章：Python与数据处理基础 
 
 > Copyright 2025 石旭乔 306开放创新实验室
 
@@ -27,28 +27,28 @@
 **安装步骤：**
 
 1. **下载Anaconda**
-   - 访问：https://www.anaconda.com/download
-   - 选择对应操作系统版本
-   - 下载Python 3.x版本
+- 访问：https://www.anaconda.com/download
+- 选择对应操作系统版本
+- 下载Python 3.x版本
 
 2. **安装**
-   ```
-   Windows: 双击安装包，一路Next
-   Mac: 双击.pkg文件安装
-   Linux: bash Anaconda3-xxx.sh
-   ```
+```
+Windows: 双击安装包，一路Next
+Mac: 双击.pkg文件安装
+Linux: bash Anaconda3-xxx.sh
+```
 
 3. **验证安装**
-   ```bash
-   # 打开终端/命令行
-   python --version
-   # 应该显示：Python 3.x.x
-   
-   conda --version
-   # 应该显示：conda x.x.x
-   ```
+```bash
+# 打开终端/命令行
+python --version
+# 应该显示：Python 3.x.x
 
-### 📓 Jupyter Notebook快速上手
+conda --version
+# 应该显示：conda x.x.x
+```
+
+### Jupyter Notebook快速上手
 
 **什么是Jupyter Notebook？**
 - **比喻：** Jupyter = 可以边写边运行的笔记本
@@ -101,14 +101,14 @@ list2 = [10, 20, 30, 40, 50]
 import numpy as np
 arr1 = np.array([1, 2, 3, 4, 5])
 arr2 = np.array([10, 20, 30, 40, 50])
-result = arr1 + arr2  # 直接相加！
+result = arr1 + arr2 # 直接相加！
 # 结果：[11, 22, 33, 44, 55]
 ```
 
 ### 导入NumPy
 
 ```python
-import numpy as np  # 约定俗成的简写
+import numpy as np # 约定俗成的简写
 ```
 
 ### 创建数组
@@ -117,14 +117,14 @@ import numpy as np  # 约定俗成的简写
 ```python
 # 一维数组
 arr1d = np.array([1, 2, 3, 4, 5])
-print(arr1d)  # [1 2 3 4 5]
+print(arr1d) # [1 2 3 4 5]
 
 # 二维数组（矩阵）
 arr2d = np.array([[1, 2, 3],
-                  [4, 5, 6]])
+[4, 5, 6]])
 print(arr2d)
 # [[1 2 3]
-#  [4 5 6]]
+# [4 5 6]]
 ```
 
 **比喻：**
@@ -134,24 +134,24 @@ print(arr2d)
 #### 2. 特殊数组
 ```python
 # 全0数组
-zeros = np.zeros((3, 4))  # 3行4列的0
+zeros = np.zeros((3, 4)) # 3行4列的0
 # [[0. 0. 0. 0.]
-#  [0. 0. 0. 0.]
-#  [0. 0. 0. 0.]]
+# [0. 0. 0. 0.]
+# [0. 0. 0. 0.]]
 
 # 全1数组
-ones = np.ones((2, 3))  # 2行3列的1
+ones = np.ones((2, 3)) # 2行3列的1
 
 # 等差数列
-arange = np.arange(0, 10, 2)  # 0到10，步长2
+arange = np.arange(0, 10, 2) # 0到10，步长2
 # [0 2 4 6 8]
 
 # 等分数列
-linspace = np.linspace(0, 1, 5)  # 0到1，分成5份
-# [0.   0.25 0.5  0.75 1.  ]
+linspace = np.linspace(0, 1, 5) # 0到1，分成5份
+# [0. 0.25 0.5 0.75 1. ]
 
 # 随机数组
-random = np.random.rand(3, 3)  # 3x3的随机数（0-1之间）
+random = np.random.rand(3, 3) # 3x3的随机数（0-1之间）
 ```
 
 
@@ -159,19 +159,19 @@ random = np.random.rand(3, 3)  # 3x3的随机数（0-1之间）
 
 ```python
 arr = np.array([[1, 2, 3, 4],
-                [5, 6, 7, 8]])
+[5, 6, 7, 8]])
 
 # 形状（几行几列）
-print(arr.shape)  # (2, 4) - 2行4列
+print(arr.shape) # (2, 4) - 2行4列
 
 # 维度
-print(arr.ndim)  # 2 - 二维
+print(arr.ndim) # 2 - 二维
 
 # 元素个数
-print(arr.size)  # 8 - 共8个元素
+print(arr.size) # 8 - 共8个元素
 
 # 数据类型
-print(arr.dtype)  # int64
+print(arr.dtype) # int64
 ```
 
 **比喻：**
@@ -186,14 +186,14 @@ print(arr.dtype)  # int64
 arr = np.array([1, 2, 3, 4, 5])
 
 # 加减乘除（每个元素都参与）
-print(arr + 10)   # [11 12 13 14 15]
-print(arr * 2)    # [2 4 6 8 10]
-print(arr ** 2)   # [1 4 9 16 25] - 平方
+print(arr + 10) # [11 12 13 14 15]
+print(arr * 2) # [2 4 6 8 10]
+print(arr ** 2) # [1 4 9 16 25] - 平方
 
 # 数组之间运算
 arr1 = np.array([1, 2, 3])
 arr2 = np.array([10, 20, 30])
-print(arr1 + arr2)  # [11 22 33]
+print(arr1 + arr2) # [11 22 33]
 ```
 
 **比喻：** 就像给每个学生的分数都加10分。
@@ -202,11 +202,11 @@ print(arr1 + arr2)  # [11 22 33]
 ```python
 arr = np.array([1, 2, 3, 4, 5])
 
-print(arr.sum())    # 15 - 求和
-print(arr.mean())   # 3.0 - 平均值
-print(arr.max())    # 5 - 最大值
-print(arr.min())    # 1 - 最小值
-print(arr.std())    # 1.41... - 标准差
+print(arr.sum()) # 15 - 求和
+print(arr.mean()) # 3.0 - 平均值
+print(arr.max()) # 5 - 最大值
+print(arr.min()) # 1 - 最小值
+print(arr.std()) # 1.41... - 标准差
 ```
 
 **比喻：** 统计班级成绩的总分、平均分、最高分、最低分。
@@ -215,9 +215,9 @@ print(arr.std())    # 1.41... - 标准差
 ```python
 # 矩阵乘法
 A = np.array([[1, 2],
-              [3, 4]])
+[3, 4]])
 B = np.array([[5, 6],
-              [7, 8]])
+[7, 8]])
 
 # 点乘（矩阵乘法）
 C = np.dot(A, B)
@@ -234,23 +234,23 @@ A_T = A.T
 arr = np.array([10, 20, 30, 40, 50])
 
 # 索引（从0开始）
-print(arr[0])    # 10 - 第1个元素
-print(arr[-1])   # 50 - 最后一个元素
+print(arr[0]) # 10 - 第1个元素
+print(arr[-1]) # 50 - 最后一个元素
 
 # 切片
-print(arr[1:4])  # [20 30 40] - 第2到第4个
-print(arr[:3])   # [10 20 30] - 前3个
-print(arr[2:])   # [30 40 50] - 从第3个到最后
+print(arr[1:4]) # [20 30 40] - 第2到第4个
+print(arr[:3]) # [10 20 30] - 前3个
+print(arr[2:]) # [30 40 50] - 从第3个到最后
 
 # 二维数组索引
 arr2d = np.array([[1, 2, 3],
-                  [4, 5, 6],
-                  [7, 8, 9]])
+[4, 5, 6],
+[7, 8, 9]])
 
-print(arr2d[0, 0])    # 1 - 第1行第1列
-print(arr2d[1, 2])    # 6 - 第2行第3列
-print(arr2d[0, :])    # [1 2 3] - 第1行所有列
-print(arr2d[:, 0])    # [1 4 7] - 所有行第1列
+print(arr2d[0, 0]) # 1 - 第1行第1列
+print(arr2d[1, 2]) # 6 - 第2行第3列
+print(arr2d[0, :]) # [1 2 3] - 第1行所有列
+print(arr2d[:, 0]) # [1 4 7] - 所有行第1列
 ```
 
 **比喻：**
@@ -264,14 +264,14 @@ arr = np.array([1, 2, 3, 4, 5])
 
 # 找出大于3的元素
 mask = arr > 3
-print(mask)  # [False False False True True]
-print(arr[mask])  # [4 5]
+print(mask) # [False False False True True]
+print(arr[mask]) # [4 5]
 
 # 简写
-print(arr[arr > 3])  # [4 5]
+print(arr[arr > 3]) # [4 5]
 
 # 多条件
-print(arr[(arr > 2) & (arr < 5)])  # [3 4]
+print(arr[(arr > 2) & (arr < 5)]) # [3 4]
 ```
 
 **比喻：** 像筛选器，只留下符合条件的。
@@ -292,7 +292,7 @@ print(arr[(arr > 2) & (arr < 5)])  # [3 4]
 ### 导入Pandas
 
 ```python
-import pandas as pd  # 约定俗成的简写
+import pandas as pd # 约定俗成的简写
 ```
 
 ### 两种数据结构
@@ -305,21 +305,21 @@ import pandas as pd  # 约定俗成的简写
 # 创建Series
 s = pd.Series([10, 20, 30, 40, 50])
 print(s)
-# 0    10
-# 1    20
-# 2    30
-# 3    40
-# 4    50
+# 0 10
+# 1 20
+# 2 30
+# 3 40
+# 4 50
 
 # 自定义索引
 s = pd.Series([10, 20, 30], index=['a', 'b', 'c'])
 print(s)
-# a    10
-# b    20
-# c    30
+# a 10
+# b 20
+# c 30
 
 # 访问元素
-print(s['a'])  # 10
+print(s['a']) # 10
 ```
 
 #### 2. DataFrame（二维）
@@ -329,19 +329,19 @@ print(s['a'])  # 10
 ```python
 # 创建DataFrame
 data = {
-    '姓名': ['张三', '李四', '王五'],
-    '年龄': [25, 30, 35],
-    '城市': ['北京', '上海', '深圳']
+'姓名': ['张三', '李四', '王五'],
+'年龄': [25, 30, 35],
+'城市': ['北京', '上海', '深圳']
 }
 df = pd.DataFrame(data)
 print(df)
-#    姓名  年龄  城市
-# 0  张三  25  北京
-# 1  李四  30  上海
-# 2  王五  35  深圳
+# 姓名 年龄 城市
+# 0 张三 25 北京
+# 1 李四 30 上海
+# 2 王五 35 深圳
 ```
 
-### 📂 读取数据
+### 读取数据
 
 ```python
 # 读取CSV文件
@@ -354,20 +354,20 @@ df = pd.read_excel('data.xlsx')
 df = pd.read_json('data.json')
 
 # 查看前几行
-print(df.head())  # 默认前5行
-print(df.head(10))  # 前10行
+print(df.head()) # 默认前5行
+print(df.head(10)) # 前10行
 
 # 查看后几行
-print(df.tail())  # 默认后5行
+print(df.tail()) # 默认后5行
 ```
 
 ### 数据查看
 
 ```python
 # 基本信息
-print(df.shape)      # (行数, 列数)
-print(df.columns)    # 列名
-print(df.info())     # 数据类型、缺失值等
+print(df.shape) # (行数, 列数)
+print(df.columns) # 列名
+print(df.info()) # 数据类型、缺失值等
 print(df.describe()) # 统计摘要
 
 # 查看某一列
@@ -377,8 +377,8 @@ print(df['姓名'])
 print(df[['姓名', '年龄']])
 
 # 查看某一行
-print(df.iloc[0])  # 第1行（按位置）
-print(df.loc[0])   # 索引为0的行（按标签）
+print(df.iloc[0]) # 第1行（按位置）
+print(df.loc[0]) # 索引为0的行（按标签）
 ```
 
 ### 数据筛选
@@ -405,17 +405,17 @@ df_filtered = df.query('年龄 > 25 and 城市 == "上海"')
 
 ```python
 # 检查缺失值
-print(df.isnull())  # 返回布尔值
-print(df.isnull().sum())  # 每列缺失值数量
+print(df.isnull()) # 返回布尔值
+print(df.isnull().sum()) # 每列缺失值数量
 
 # 删除缺失值
-df_clean = df.dropna()  # 删除有缺失值的行
-df_clean = df.dropna(axis=1)  # 删除有缺失值的列
+df_clean = df.dropna() # 删除有缺失值的行
+df_clean = df.dropna(axis=1) # 删除有缺失值的列
 
 # 填充缺失值
-df_filled = df.fillna(0)  # 用0填充
-df_filled = df.fillna(df.mean())  # 用平均值填充
-df_filled = df.fillna(method='ffill')  # 用前一个值填充
+df_filled = df.fillna(0) # 用0填充
+df_filled = df.fillna(df.mean()) # 用平均值填充
+df_filled = df.fillna(method='ffill') # 用前一个值填充
 ```
 
 **比喻：**
@@ -426,7 +426,7 @@ df_filled = df.fillna(method='ffill')  # 用前一个值填充
 
 ```python
 # 检查重复
-print(df.duplicated())  # 返回布尔值
+print(df.duplicated()) # 返回布尔值
 
 # 删除重复
 df_unique = df.drop_duplicates()
@@ -454,8 +454,8 @@ grouped = df.groupby('城市')['年龄'].mean()
 
 # 多种聚合
 grouped = df.groupby('城市').agg({
-    '年龄': ['mean', 'max', 'min'],
-    '工资': 'sum'
+'年龄': ['mean', 'max', 'min'],
+'工资': 'sum'
 })
 ```
 
@@ -534,7 +534,7 @@ plt.show()
 
 **用途：** 对比不同类别（销售额对比、成绩对比）
 
-### 🔵 散点图
+### 散点图
 
 ```python
 # 数据
@@ -567,7 +567,7 @@ plt.show()
 
 **用途：** 展示数据分布（成绩分布、年龄分布）
 
-### 🥧 饼图
+### 饼图
 
 ```python
 # 数据
@@ -586,7 +586,7 @@ plt.show()
 
 ```python
 # 设置样式
-plt.style.use('seaborn')  # 使用seaborn风格
+plt.style.use('seaborn') # 使用seaborn风格
 
 # 设置图表大小
 plt.figure(figsize=(10, 6))
@@ -619,7 +619,7 @@ plt.savefig('my_plot.png', dpi=300)
 - 不同特征的量纲不同（身高用cm，体重用kg）
 - 机器学习算法对数据格式有要求
 
-### 📏 特征缩放
+###  特征缩放
 
 #### 1. 标准化 (Standardization)
 
@@ -639,8 +639,8 @@ data_scaled = scaler.fit_transform(data)
 
 print(data_scaled)
 # [[-1.22 -1.22]
-#  [ 0.    0.  ]
-#  [ 1.22  1.22]]
+# [ 0. 0. ]
+# [ 1.22 1.22]]
 ```
 
 **何时使用：**
@@ -664,9 +664,9 @@ scaler = MinMaxScaler()
 data_scaled = scaler.fit_transform(data)
 
 print(data_scaled)
-# [[0.  0. ]
-#  [0.5 0.5]
-#  [1.  1. ]]
+# [[0. 0. ]
+# [0.5 0.5]
+# [1. 1. ]]
 ```
 
 **何时使用：**
@@ -681,7 +681,7 @@ print(data_scaled)
 归一化后：身高[0, 0.33, 0.67, 1.0], 体重[0, 0.33, 0.67, 1.0]
 ```
 
-### 🏷️ 特征编码
+###  特征编码
 
 #### 1. 标签编码 (Label Encoding)
 
@@ -697,7 +697,7 @@ colors = ['红', '绿', '蓝', '红', '绿']
 encoder = LabelEncoder()
 colors_encoded = encoder.fit_transform(colors)
 
-print(colors_encoded)  # [2 1 0 2 1]
+print(colors_encoded) # [2 1 0 2 1]
 ```
 
 **适用场景：** 有序类别（低、中、高）
@@ -717,10 +717,10 @@ encoder = OneHotEncoder(sparse=False)
 colors_encoded = encoder.fit_transform(colors)
 
 print(colors_encoded)
-# [[0. 0. 1.]  # 红
-#  [0. 1. 0.]  # 绿
-#  [1. 0. 0.]  # 蓝
-#  [0. 0. 1.]] # 红
+# [[0. 0. 1.] # 红
+# [0. 1. 0.] # 绿
+# [1. 0. 0.] # 蓝
+# [0. 0. 1.]] # 红
 ```
 
 **适用场景：** 无序类别（颜色、城市）
@@ -798,10 +798,10 @@ import pandas as pd
 
 # 创建数据
 data = {
-    '姓名': ['张三', '李四', '王五', '赵六', '张三'],
-    '年龄': [25, 30, None, 35, 25],
-    '城市': ['北京', '上海', '深圳', '北京', '北京'],
-    '工资': [8000, 12000, 15000, 10000, 8000]
+'姓名': ['张三', '李四', '王五', '赵六', '张三'],
+'年龄': [25, 30, None, 35, 25],
+'城市': ['北京', '上海', '深圳', '北京', '北京'],
+'工资': [8000, 12000, 15000, 10000, 8000]
 }
 df = pd.DataFrame(data)
 
@@ -836,24 +836,24 @@ sales = [120, 150, 180, 160, 200, 220]
 ### 核心要点
 
 1. **NumPy**
-   - 高效的数组运算库
-   - 创建数组、数组运算、索引切片
-   - 是机器学习的基础
+- 高效的数组运算库
+- 创建数组、数组运算、索引切片
+- 是机器学习的基础
 
 2. **Pandas**
-   - 表格数据处理工具
-   - 读取数据、数据清洗、数据筛选
-   - 80%的时间在用Pandas处理数据
+- 表格数据处理工具
+- 读取数据、数据清洗、数据筛选
+- 80%的时间在用Pandas处理数据
 
 3. **Matplotlib**
-   - 数据可视化工具
-   - 折线图、柱状图、散点图、直方图
-   - 一图胜千言
+- 数据可视化工具
+- 折线图、柱状图、散点图、直方图
+- 一图胜千言
 
 4. **数据预处理**
-   - 特征缩放：标准化、归一化
-   - 特征编码：标签编码、独热编码
-   - 特征选择：选择重要特征
+- 特征缩放：标准化、归一化
+- 特征编码：标签编码、独热编码
+- 特征选择：选择重要特征
 
 ### 下一步
 
