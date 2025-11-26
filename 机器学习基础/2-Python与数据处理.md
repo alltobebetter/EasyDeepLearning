@@ -1,22 +1,24 @@
 # 第二章：Python与数据处理基础 🐍
 
+> Copyright 2025 石旭乔 306开放创新实验室
+
 > 工欲善其事，必先利其器：掌握机器学习的必备工具
 
 ---
 
 ## 2.1 Python环境搭建
 
-### 🎯 为什么选择Python？
+### 为什么选择Python？
 
 **比喻：** Python是机器学习界的"普通话"，大家都在用。
 
 **优势：**
-- 📚 丰富的库：NumPy、Pandas、Scikit-learn
-- 🎓 学习曲线平缓：语法简单易懂
-- 👥 社区活跃：遇到问题容易找到答案
-- 🚀 开发效率高：代码简洁
+- 丰富的库：NumPy、Pandas、Scikit-learn
+- 学习曲线平缓：语法简单易懂
+- 社区活跃：遇到问题容易找到答案
+- 开发效率高：代码简洁
 
-### 🛠️ 安装Anaconda
+### 安装Anaconda
 
 **什么是Anaconda？**
 - **比喻：** Anaconda = Python全家桶套餐
@@ -82,7 +84,7 @@ print("Hello, Machine Learning!")
 
 ## 2.2 NumPy：数值计算基础
 
-### 🎯 什么是NumPy？
+### 什么是NumPy？
 
 **全称：** Numerical Python（数值Python）
 
@@ -103,13 +105,13 @@ result = arr1 + arr2  # 直接相加！
 # 结果：[11, 22, 33, 44, 55]
 ```
 
-### 📦 导入NumPy
+### 导入NumPy
 
 ```python
 import numpy as np  # 约定俗成的简写
 ```
 
-### 🔢 创建数组
+### 创建数组
 
 #### 1. 从列表创建
 ```python
@@ -153,7 +155,7 @@ random = np.random.rand(3, 3)  # 3x3的随机数（0-1之间）
 ```
 
 
-### 🔍 数组属性
+### 数组属性
 
 ```python
 arr = np.array([[1, 2, 3, 4],
@@ -226,7 +228,7 @@ C = A @ B
 A_T = A.T
 ```
 
-### 🎯 索引与切片
+### 索引与切片
 
 ```python
 arr = np.array([10, 20, 30, 40, 50])
@@ -255,7 +257,7 @@ print(arr2d[:, 0])    # [1 4 7] - 所有行第1列
 - 索引 = 找到第几个座位
 - 切片 = 选择一段连续的座位
 
-### 🎲 布尔索引
+### 布尔索引
 
 ```python
 arr = np.array([1, 2, 3, 4, 5])
@@ -278,7 +280,7 @@ print(arr[(arr > 2) & (arr < 5)])  # [3 4]
 
 ## 2.3 Pandas：数据分析利器
 
-### 🎯 什么是Pandas？
+### 什么是Pandas？
 
 **比喻：** Pandas = Excel的编程版，专门处理表格数据。
 
@@ -287,13 +289,13 @@ print(arr[(arr > 2) & (arr < 5)])  # [3 4]
 - 数据清洗、筛选、分组
 - 比NumPy更适合处理真实数据
 
-### 📦 导入Pandas
+### 导入Pandas
 
 ```python
 import pandas as pd  # 约定俗成的简写
 ```
 
-### 📊 两种数据结构
+### 两种数据结构
 
 #### 1. Series（一维）
 
@@ -359,7 +361,7 @@ print(df.head(10))  # 前10行
 print(df.tail())  # 默认后5行
 ```
 
-### 🔍 数据查看
+### 数据查看
 
 ```python
 # 基本信息
@@ -379,7 +381,7 @@ print(df.iloc[0])  # 第1行（按位置）
 print(df.loc[0])   # 索引为0的行（按标签）
 ```
 
-### 🎯 数据筛选
+### 数据筛选
 
 ```python
 # 条件筛选
@@ -397,7 +399,7 @@ df_filtered = df.query('年龄 > 25 and 城市 == "上海"')
 **比喻：** 像Excel的筛选功能，只显示符合条件的行。
 
 
-### 🧹 数据清洗
+### 数据清洗
 
 #### 1. 处理缺失值
 
@@ -444,7 +446,7 @@ df['年龄'] = df['年龄'].astype(int)
 df['日期'] = pd.to_datetime(df['日期'])
 ```
 
-### 📊 数据分组与聚合
+### 数据分组与聚合
 
 ```python
 # 按城市分组，计算平均年龄
@@ -459,7 +461,7 @@ grouped = df.groupby('城市').agg({
 
 **比喻：** 像Excel的数据透视表，按类别统计。
 
-### 🔗 数据合并
+### 数据合并
 
 ```python
 # 纵向拼接（上下拼接）
@@ -481,7 +483,7 @@ df_merged = pd.merge(df1, df2, on='ID', how='inner')
 
 ## 2.4 Matplotlib：数据可视化
 
-### 🎯 什么是Matplotlib？
+### 什么是Matplotlib？
 
 **比喻：** Matplotlib = 画笔和画布，把数据画成图表。
 
@@ -490,7 +492,7 @@ df_merged = pd.merge(df1, df2, on='ID', how='inner')
 - 快速发现数据规律
 - 展示分析结果
 
-### 📦 导入Matplotlib
+### 导入Matplotlib
 
 ```python
 import matplotlib.pyplot as plt
@@ -498,7 +500,7 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 ```
 
-### 📈 折线图
+### 折线图
 
 ```python
 # 数据
@@ -515,7 +517,7 @@ plt.show()
 
 **用途：** 展示趋势变化（股票走势、温度变化）
 
-### 📊 柱状图
+### 柱状图
 
 ```python
 # 数据
@@ -549,7 +551,7 @@ plt.show()
 
 **用途：** 展示两个变量的关系（身高vs体重）
 
-### 📊 直方图
+### 直方图
 
 ```python
 # 数据
@@ -580,7 +582,7 @@ plt.show()
 
 **用途：** 展示占比（市场份额、预算分配）
 
-### 🎨 图表美化
+### 图表美化
 
 ```python
 # 设置样式
@@ -608,7 +610,7 @@ plt.savefig('my_plot.png', dpi=300)
 
 ## 2.5 数据预处理
 
-### 🎯 为什么需要数据预处理？
+### 为什么需要数据预处理？
 
 **比喻：** 数据预处理 = 做菜前的准备工作（洗菜、切菜）
 
@@ -733,7 +735,7 @@ print(colors_encoded)
 → 没有大小关系
 ```
 
-### 🎯 特征选择
+### 特征选择
 
 **目的：** 选择最重要的特征，去掉无用特征
 
@@ -775,7 +777,7 @@ importances = model.feature_importances_
 
 ## 2.6 实战练习
 
-### 🎯 练习1：NumPy数组操作
+### 练习1：NumPy数组操作
 
 ```python
 import numpy as np
@@ -789,7 +791,7 @@ matrix = np.random.rand(5, 5)
 # 3. 将所有大于0.5的值替换为1，小于等于0.5的替换为0
 ```
 
-### 🎯 练习2：Pandas数据处理
+### 练习2：Pandas数据处理
 
 ```python
 import pandas as pd
@@ -810,7 +812,7 @@ df = pd.DataFrame(data)
 # 4. 筛选出工资大于10000的记录
 ```
 
-### 🎯 练习3：数据可视化
+### 练习3：数据可视化
 
 ```python
 import matplotlib.pyplot as plt
@@ -831,7 +833,7 @@ sales = [120, 150, 180, 160, 200, 220]
 
 ## 2.7 本章总结
 
-### 🎯 核心要点
+### 核心要点
 
 1. **NumPy**
    - 高效的数组运算库
@@ -853,13 +855,13 @@ sales = [120, 150, 180, 160, 200, 220]
    - 特征编码：标签编码、独热编码
    - 特征选择：选择重要特征
 
-### 🚀 下一步
+### 下一步
 
 学完第二章，你应该：
-- ✅ 会用NumPy处理数组
-- ✅ 会用Pandas处理表格数据
-- ✅ 会用Matplotlib画图
-- ✅ 理解数据预处理的重要性
+- 会用NumPy处理数组
+- 会用Pandas处理表格数据
+- 会用Matplotlib画图
+- 理解数据预处理的重要性
 
 **接下来：**
 → 第三章：学习经典机器学习算法
@@ -868,6 +870,6 @@ sales = [120, 150, 180, 160, 200, 220]
 
 ---
 
-**恭喜你完成第二章！🎉**
+**恭喜你完成第二章！**
 
-现在你已经掌握了机器学习的必备工具，准备好学习算法了吗？💪
+现在你已经掌握了机器学习的必备工具，准备好学习算法了吗？

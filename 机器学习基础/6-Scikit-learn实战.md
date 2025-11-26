@@ -1,4 +1,6 @@
-# 第六章：Scikit-learn实战精通 🛠️
+# 第六章：Scikit-learn实战精通
+
+> Copyright 2025 石旭乔 306开放创新实验室
 
 > 掌握Scikit-learn的高级技巧，成为机器学习实战高手
 
@@ -6,18 +8,18 @@
 
 ## 6.1 Scikit-learn简介
 
-### 🎯 什么是Scikit-learn？
+### 什么是Scikit-learn？
 
 **比喻：** Scikit-learn = 机器学习的瑞士军刀
 
 **特点：**
-- 📚 算法丰富：分类、回归、聚类、降维等
-- 🎨 API统一：所有算法接口一致
-- 📖 文档完善：有大量示例和教程
-- 🚀 性能优秀：底层用C/Cython优化
-- 🤝 社区活跃：持续更新维护
+- 算法丰富：分类、回归、聚类、降维等
+- API统一：所有算法接口一致
+- 文档完善：有大量示例和教程
+- 性能优秀：底层用C/Cython优化
+- 社区活跃：持续更新维护
 
-### 📦 核心模块
+### 核心模块
 
 ```python
 from sklearn import (
@@ -37,7 +39,7 @@ from sklearn import (
 )
 ```
 
-### 🎨 统一的API设计
+### 统一的API设计
 
 **所有模型都遵循相同的接口：**
 
@@ -61,7 +63,7 @@ score = model.score(X_test, y_test)
 
 ## 6.2 数据预处理模块
 
-### 🔢 特征缩放
+### 特征缩放
 
 #### 1. StandardScaler（标准化）
 
@@ -85,10 +87,10 @@ print('标准差:', scaler.scale_)
 **重要：** 测试集不能fit，只能transform！
 
 ```python
-# ❌ 错误做法
+# 错误做法
 X_test_scaled = scaler.fit_transform(X_test)  # 会导致数据泄露！
 
-# ✅ 正确做法
+# 正确做法
 X_test_scaled = scaler.transform(X_test)
 ```
 
@@ -177,7 +179,7 @@ education_encoded = oe.fit_transform(education)
 print(education_encoded)  # [[0.] [2.] [1.] [0.]]
 ```
 
-### 🔄 数据转换
+### 数据转换
 
 #### 1. PolynomialFeatures（多项式特征）
 
@@ -216,7 +218,7 @@ def custom_transform(X):
 square_transformer = FunctionTransformer(custom_transform)
 ```
 
-### 🎯 处理缺失值
+### 处理缺失值
 
 ```python
 from sklearn.impute import SimpleImputer
@@ -236,7 +238,7 @@ imputer = SimpleImputer(strategy='constant', fill_value=0)  # 常数
 
 ## 6.3 模型选择模块
 
-### 🔀 数据集划分
+### 数据集划分
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -255,7 +257,7 @@ X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3)
 X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5)
 ```
 
-### 🔄 交叉验证
+### 交叉验证
 
 #### 1. cross_val_score（快速交叉验证）
 
@@ -321,7 +323,7 @@ for train_idx, test_idx in skf.split(X, y):
     # 训练和评估
 ```
 
-### 🔍 超参数搜索
+### 超参数搜索
 
 #### 1. GridSearchCV（网格搜索）
 
@@ -415,12 +417,12 @@ halving_search.fit(X_train, y_train)
 
 ## 6.4 Pipeline管道
 
-### 🎯 为什么需要Pipeline？
+### 为什么需要Pipeline？
 
 **问题：** 数据预处理步骤繁琐，容易出错
 
 ```python
-# ❌ 传统方式：容易出错
+# 传统方式：容易出错
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)  # 容易忘记只transform
@@ -433,7 +435,7 @@ y_pred = model.predict(X_test_scaled)
 **解决：** 使用Pipeline把步骤串联起来
 
 ```python
-# ✅ Pipeline方式：简洁不易错
+# Pipeline方式：简洁不易错
 from sklearn.pipeline import Pipeline
 
 pipeline = Pipeline([
@@ -445,7 +447,7 @@ pipeline.fit(X_train, y_train)
 y_pred = pipeline.predict(X_test)
 ```
 
-### 🔧 创建Pipeline
+### 创建Pipeline
 
 #### 1. 基本Pipeline
 
@@ -513,7 +515,7 @@ grid_search.fit(X_train, y_train)
 print('最佳参数:', grid_search.best_params_)
 ```
 
-### 🌳 ColumnTransformer（列转换器）
+### ColumnTransformer（列转换器）
 
 **用途：** 对不同列应用不同的转换
 
@@ -542,7 +544,7 @@ pipeline = Pipeline([
 pipeline.fit(X_train, y_train)
 ```
 
-### 🎯 完整示例
+### 完整示例
 
 ```python
 import pandas as pd
@@ -613,7 +615,7 @@ print('最佳分数:', grid_search.best_score_)
 
 ## 6.5 模型持久化
 
-### 💾 保存和加载模型
+### 保存和加载模型
 
 #### 1. 使用joblib（推荐）
 
@@ -655,7 +657,7 @@ pipeline_loaded = load('pipeline.joblib')
 y_pred = pipeline_loaded.predict(X_new)
 ```
 
-### 📦 保存预处理器
+### 保存预处理器
 
 ```python
 # 保存scaler
@@ -670,7 +672,7 @@ X_new_scaled = scaler.transform(X_new)
 
 ## 6.6 实用技巧
 
-### 🎯 1. 快速原型开发
+### 1. 快速原型开发
 
 ```python
 from sklearn.datasets import load_iris
@@ -683,7 +685,7 @@ scores = cross_val_score(RandomForestClassifier(), X, y, cv=5)
 print(f'准确率: {scores.mean():.3f} (+/- {scores.std():.3f})')
 ```
 
-### 🎯 2. 模型对比
+### 2. 模型对比
 
 ```python
 from sklearn.linear_model import LogisticRegression
@@ -703,7 +705,7 @@ for name, model in models.items():
     print(f'{name}: {scores.mean():.3f} (+/- {scores.std():.3f})')
 ```
 
-### 🎯 3. 特征重要性分析
+### 3. 特征重要性分析
 
 ```python
 from sklearn.ensemble import RandomForestClassifier
@@ -729,7 +731,7 @@ plt.gca().invert_yaxis()
 plt.show()
 ```
 
-### 🎯 4. 学习曲线
+### 4. 学习曲线
 
 ```python
 from sklearn.model_selection import learning_curve
@@ -754,7 +756,7 @@ plt.grid(True)
 plt.show()
 ```
 
-### 🎯 5. 验证曲线
+### 5. 验证曲线
 
 ```python
 from sklearn.model_selection import validation_curve
@@ -785,11 +787,11 @@ plt.show()
 
 ## 6.7 常见问题与解决方案
 
-### ❓ 问题1：数据泄露
+### 问题1：数据泄露
 
 **错误示例：**
 ```python
-# ❌ 在划分数据前进行缩放
+# 在划分数据前进行缩放
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)  # 用了全部数据！
 X_train, X_test = train_test_split(X_scaled, y)
@@ -797,14 +799,14 @@ X_train, X_test = train_test_split(X_scaled, y)
 
 **正确做法：**
 ```python
-# ✅ 先划分，再缩放
+# 先划分，再缩放
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)  # 只transform
 ```
 
-### ❓ 问题2：类别不平衡
+### 问题2：类别不平衡
 
 **解决方案1：调整类别权重**
 ```python
@@ -831,7 +833,7 @@ rus = RandomUnderSampler(random_state=42)
 X_resampled, y_resampled = rus.fit_resample(X_train, y_train)
 ```
 
-### ❓ 问题3：特征量纲不同
+### 问题3：特征量纲不同
 
 **解决方案：**
 ```python
@@ -842,7 +844,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 ```
 
-### ❓ 问题4：类别特征处理
+### 问题4：类别特征处理
 
 **解决方案：**
 ```python
@@ -856,7 +858,7 @@ preprocessor = ColumnTransformer([
 ])
 ```
 
-### ❓ 问题5：过拟合
+### 问题5：过拟合
 
 **解决方案：**
 ```python
@@ -875,7 +877,7 @@ scores = cross_val_score(model, X, y, cv=5)
 # 5. 使用Dropout（神经网络）
 ```
 
-### ❓ 问题6：训练太慢
+### 问题6：训练太慢
 
 **解决方案：**
 ```python
@@ -896,7 +898,7 @@ X_selected = selector.fit_transform(X, y)
 
 ## 6.8 最佳实践
 
-### ✅ 1. 代码组织
+### 1. 代码组织
 
 ```python
 # 推荐的项目结构
@@ -917,7 +919,7 @@ project/
 """
 ```
 
-### ✅ 2. 配置管理
+### 2. 配置管理
 
 ```python
 # config.py
@@ -939,7 +941,7 @@ CONFIG = {
 }
 ```
 
-### ✅ 3. 实验追踪
+### 3. 实验追踪
 
 ```python
 import mlflow
@@ -961,7 +963,7 @@ with mlflow.start_run():
     mlflow.sklearn.log_model(model, 'model')
 ```
 
-### ✅ 4. 单元测试
+### 4. 单元测试
 
 ```python
 import unittest
@@ -992,7 +994,7 @@ if __name__ == '__main__':
     unittest.main()
 ```
 
-### ✅ 5. 文档编写
+### 5. 文档编写
 
 ```python
 def train_model(X_train, y_train, model_params=None):
@@ -1210,7 +1212,7 @@ if __name__ == '__main__':
 
 ## 6.10 本章总结
 
-### 🎯 核心要点
+### 核心要点
 
 1. **Scikit-learn核心模块**
    - datasets：数据集
@@ -1244,16 +1246,16 @@ if __name__ == '__main__':
    - 单元测试
    - 文档编写
 
-### 🚀 你已经掌握
+### 你已经掌握
 
-- ✅ Scikit-learn的核心功能
-- ✅ 数据预处理的各种方法
-- ✅ 模型选择和调优技巧
-- ✅ Pipeline的使用
-- ✅ 完整项目的开发流程
-- ✅ 机器学习的最佳实践
+- Scikit-learn的核心功能
+- 数据预处理的各种方法
+- 模型选择和调优技巧
+- Pipeline的使用
+- 完整项目的开发流程
+- 机器学习的最佳实践
 
-### 🎓 接下来
+### 接下来
 
 **恭喜你完成机器学习基础课程！**
 
@@ -1279,7 +1281,7 @@ if __name__ == '__main__':
 
 ---
 
-## 📚 推荐资源
+## 推荐资源
 
 ### 书籍
 - 《机器学习实战》
@@ -1305,8 +1307,8 @@ if __name__ == '__main__':
 
 ---
 
-**恭喜你完成第六章！🎉**
+**恭喜你完成第六章！**
 
-你已经成为Scikit-learn实战高手，准备好迎接深度学习的挑战了吗？💪
+你已经成为Scikit-learn实战高手，准备好迎接深度学习的挑战了吗？
 
-**记住：** 机器学习是一个不断学习和实践的过程，保持好奇心，持续进步！🚀
+**记住：** 机器学习是一个不断学习和实践的过程，保持好奇心，持续进步！
